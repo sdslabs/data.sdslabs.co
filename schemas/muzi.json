@@ -1,0 +1,75 @@
+{	
+	"app" : {
+	    "title" : "Muzi",
+	    "desc": "With over 130,000 tracks by 11,000 artists and updating daily, Muzi is the one stop online music player for the IIT Roorkee intranet.",
+	    "collections" : 
+	    	[
+	    		{
+	    			"name" : "listens",
+	    			"fields" :
+	    				[
+	    					{
+	    						"name" : "trackid",
+	    						"desc" : "integer to identify a unique track/song"
+	    					},
+	    					{
+	    						"name" : "uid",
+	    						"desc" : "integer to identify a unique user"
+	    					},
+	    					{
+	    						"name" : "time",
+	    						"desc" : "time of when the track was played by the user"
+	    					}
+	    				]
+				},
+				{
+	    			"name" : "tracks",
+	    			"fields" :
+	    				[
+	    					{
+	    						"name" : "id",
+	    						"desc" : "integer to identify a unique track"
+	    					},
+	    					{
+	    						"name" : "title",
+	    						"desc" : "title of the track eg: Lost Stars"
+	    					},
+	    					{
+	    						"name" : "album",
+	    						"desc" : "integer to identify the album of the track"
+	    					},
+	    					{
+	    						"name" : "artist",
+	    						"desc" : "artist of the track eg: Taylor Swift"
+	    					},
+	    					{
+	    						"name" : "plays",
+	    						"desc" : "integer indicating the number of times the track has been played"
+	    					},
+	    					{
+	    						"name" : "length",
+	    						"desc" : "length of the track in seconds"
+	    					}
+	    				]
+				},
+				{
+	    			"name" : "albums",
+	    			"fields" :
+	    				[
+	    					{
+	    						"name" : "id",
+	    						"desc" : "integer to identify a unique album"
+	    					},
+	    					{
+	    						"name" : "name",
+	    						"desc" : "name of the album eg: Dhoom 3"
+	    					},
+	    					{
+	    						"name" : "language",
+	    						"desc" : "language of the album"
+	    					}
+	    				]
+				}
+	    	]
+	}
+}

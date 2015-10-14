@@ -1,0 +1,209 @@
+Data
+
+"data.sdslabs.co"
+
+- Structure
+  "the initial release of information that we log and can provide"
+  - Applications
+    - Muzi
+      "With over 130,000 tracks by 11,000 artists and updating daily, Muzi is the one stop online music player for the IIT Roorkee intranet."
+      - Collections
+        - listens
+          - trackid
+            "integer to identify a unique track/song"
+          - uid
+            "integer to identify a unique user"
+          - time
+            "time of when the track was played by the user"
+        - tracks
+          - id
+            "integer to identify a unique track"
+          - title
+            "title of the track eg: Lost Stars"
+          - album
+            "integer to identify the album of the track"
+          - artist
+            "artist of the track eg: Taylor Swift"
+          - plays
+            "integer indicating the number of times the track has been played"
+          - length
+            "length of the track in seconds"
+        - albums
+          - id
+            "integer to identify a unique album"
+          - name
+            "name of the album eg: Dhoom 3"
+          - language
+            "language of the album"
+    - Live
+      "SDSLabs Live is the most popular application on the campus of IIT Roorkee. It streams video programs at times peaking 1200 active viewers. At present votes cast by the viewers are logged and are available in the following format."
+      - Collections
+        - votes
+          - id
+            "integer to identify a unique vote"
+          - user_id
+            "integer to identify a unique user"
+          - program_id
+            "integer to identify a television program"
+          - created_at
+            "when did the vote cast this vote"
+        - programs
+          - id
+            "integer to identify a television program"
+          - start_time
+            "time of when the show starts"
+          - end_time
+            "time of when the show ends"
+          - program_name
+            "the name of the television program"
+          - was_it_live
+            "indicates whether the program was a live program"
+          - description
+            "Information about the television program"
+    - Backdoor
+      "Backdoor is a platform for competitive computer security challenges. Frequent competitions are held on Backdoor with participants from all over the world."
+      - Collections
+        - logs
+          "Represents a flag submission."
+          - id
+            "integer to identify a unique log"
+          - created_at
+            "time of when the log was created"
+          - user_id
+            "integer to identify a unique user"
+          - flag_id
+            "integer to identify the flag submitted by the user"
+          - match
+            "indicates whether the flag submitted was valid"
+        - flags
+          "All valid flags"
+          - id
+            "integer to identify a unique flag"
+          - flag
+            "64 byte long hexadecimal string representing a flag"
+          - points
+            "points corresponding to the flag"
+        - challenges
+          "Each challenge has an associated valid flag with it"
+          - id
+            "integer to identify a challenge"
+          - name
+            "the name of the challenge. This is used in the url eg: https://backdoor.sdslabs.co/challenges/MEDUSA"
+          - title
+            "the title of the challenge"
+          - flag_id
+            "integer to identify the flag associated with the challenge"
+          - statement
+            "the challenge statement"
+          - creator
+            "integer to identify the user who created this challenge"
+          - created_at
+            "time of challenge creation i.e. addition to the backdoor platform"
+    - StudyPortal
+      "Study Portal allows anyone to upload files to courses that are taught in IITR. These files can be professor’s handouts, practical manuals, tutorial solutions, class notes etc. And these files are going to outlast your tenure in the lands of IITR."
+      - Collections
+        - logs
+          "file download logs"
+          - id
+            "integer to identify a unique log"
+          - fileid
+            "integer to identify a unique file"
+          - time
+            "time of when the download was made"
+        - files
+          - id
+            "integer to identify a unique file"
+          - title
+            "title of the file"
+          - department
+            "department of the course to which the file belongs eg: ce"
+          - course
+            "course of the file eg: CE212"
+          - uploader
+            "integer to identify the uploader of the file"
+          - contentType
+            "content type of the file"
+          - no_of_downloads
+            "number of times the file has been downloaded"
+          - description
+            "description of the file"
+    - Hubble
+      "( *will be shared with public only after Hubble is launched ) Hubble is a resource sharing application for IITR junta. We log the links posted by users along with their active interaction in the form of clicks, votes and comments"
+      - Collections
+        - links
+          "links posted"
+          - id
+            "integer to identify unique link"
+          - track
+            "track in which link was posted ( currently supported tracks: tech, design, science )"
+          - title
+            "title of the resource in the link"
+          - link
+            "url of the resource"
+          - description
+            "optional brief description"
+          - votes
+            "no. of votes"
+          - timestamp
+            "unix timestamp when link was posted"
+          - uid
+            "integer to identify the unique user who posted the link"
+        - votelogs
+          "logs of votes on links"
+          - item
+            "integer to identify the unique voted link"
+          - user
+            "username of the user who has voted"
+          - type
+            "type of vote: upvote/downvote"
+        - clicklogs
+          "logs of clicks on links"
+          - item
+            "integer to identify the unique clicked link"
+          - user
+            "username of the user who has clicked"
+          - time
+            "time of clicking"
+    - CodeVillage
+      "CodeVillage is a platform for practicing competitive algorithmic programming. We also organize frequent coding competitions."
+      - Collections
+        - solution
+          "solution submission and status logs"
+          - id
+          - pid
+          - uid
+          - ctype
+          - sdate
+          - status
+          - language
+          - time
+          - memory
+          - detail_status
+        - prob_prac / prob_train / prob_comp
+          "problem details ( prob_prac : practice problems, prob_train : training problems, prob_comp : competition problems )"
+          - id
+          - pid
+          - cid 
+            "only for prob_comp"
+          - name
+          - pdata
+          - size
+          - time_limit
+          - memory_limit
+          - no_of_correct
+          - no_of_attempts
+          - uploader_id
+          - date
+          - source
+          - difficulty
+        - competition
+          "competition details"
+          - id
+          - cname
+          - sdate
+          - edate
+          - predata
+          - announcements
+          - rules
+          - copied_to_prac
+    - Erdos
