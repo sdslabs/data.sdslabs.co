@@ -87,17 +87,23 @@ window.onload = function () {
             r = Raphael("org-chart", "95%", "95%"),
             connections = [],
             shapes = [],
-            getNode = function( x, y, h, w, text ) {
+            getNode = function( x, y, w, h, text, root ) {
+                if( root == 1 )
+                    var op = 0.1;
+                else
+                    var op = 0;
+                var l = text.length;
+                w = 15*l + 25;
                 var eltext = r.set();
-                el = r.rect( x, y, h, w).attr({fill: '#00AA60', stroke: '#00AA60', "fill-opacity": 0, "stroke-width": 1, cursor: "move"});;
-                text = r.text(x+h/2, y+w/2, text).attr({fill: '#00AA60', font: '30px Myriad Pro Regular'})
+                el = r.rect( x, y, w, h).attr({fill: '#00AA60', stroke: '#00AA60', "fill-opacity": op, "stroke-width": 1, cursor: "move"});;
+                text = r.text(x+w/2, y+h/2, text).attr({fill: '#00AA60', font: '30px Myriad Pro Regular'})
                 eltext.push(el);
                 eltext.push(text);
                 return (eltext);
             },
             getFieldNode = function( x, y, h, w, text ) {
                 var eltext = r.set();
-                el = r.rect( x, y, h, w).attr({fill: '#00AA60', stroke: '#00AA60', "fill-opacity": 0, cursor: "move"});;
+                el = r.rect( x, y, h, w).attr({fill: '#12020E', stroke: '#12020E', "fill-opacity": 0, cursor: "move"});;
                 text = r.text(x+h/2, y+w/2, text).attr({fill: '#00AA60', font: '24px Myriad Pro Regular'})
                 eltext.push(el);
                 eltext.push(text);
@@ -106,29 +112,38 @@ window.onload = function () {
         
         var w = r.canvas.offsetWidth - 50;
         var app = schema.app;
-        var root = getNode(w/2, 50, 160, 75, app.title);
+        var root = getNode(w/2, 50, 160, 75, app.title, 1);
         shapes.push(root);
         
         var collections = app.collections;
         var n = collections.length;
+        var nf_total = 0;
+        for( var i = 0; i<n; i++){
+            nf_total = nf_total + collections[i].fields.length
+        }
+        var wf_prev = 0;
         for( var i = 0; i<n; i++){
             var col = collections[i];
-            colNode = getNode((i+1)*w/(n+1), 250, 160, 75, col.name);
-            shapes.push(colNode);
-            connections.push(r.connection(root, colNode, "#fff", "#fff|5"));
             var fields = col.fields;
             var nf = fields.length;
-            var wf = w/n;
+            var wf = (w-10)*(nf/nf_total);
+            colNode = getNode(wf_prev + 0.5*wf, 250, 160, 75, col.name);
+            shapes.push(colNode);
+            connections.push(r.connection(root, colNode, "#fff", "#fff|5"));
             for( var j = 0; j<nf; j++){
                 var field = fields[j];
-                if(j<nf/2)
-                    y = 450 + (j*400/(nf-1));
+                if(j<=nf/2)
+                    var y = 450 + (j*500/(nf-1));
                 else
-                    y = 450 + ((nf-j)*450/(nf-1));
-                fieldNode = getFieldNode( i*w/n + (j+0.5)*wf/(nf), y, 100, 50, field.name);
+                    var y = 450 + ((nf-j-0.5)*500/(nf-1));
+                var x = wf_prev + (j+0.3)*wf/nf;
+                if(j==(nf+1)/2)
+                    x = x + 20;
+                fieldNode = getFieldNode( x, y, 100, 50, field.name);
                 shapes.push(fieldNode);
                 connections.push(r.connection(colNode, fieldNode, "#fff"));
             }
+            wf_prev = wf_prev + wf;
         }
         for( var i = 0; i<shapes.length; i++){
             shapes[i].drag(move, dragger, up);
