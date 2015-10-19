@@ -1,0 +1,86 @@
+{	
+	"app" : {
+	    "title" : "Hubble",
+	    "desc": "Hubble is a resource sharing application for IITR junta. We log the links posted by users along with their active interaction in the form of clicks, votes and comments",
+	    "collections" : 
+	    	[
+	    		{
+	    			"name" : "links",
+	    			"desc" : "links posted",
+	    			"fields" :
+	    				[
+	    					{
+	    						"name" : "id",
+	    						"desc" : "integer to identify a unique link"
+	    					},
+	    					{
+	    						"name" : "track",
+	    						"desc" : "track in which link was posted"
+	    					},
+	    					{
+	    						"name" : "title",
+	    						"desc" : "title of the resource in the link"
+	    					},
+	    					{
+	    						"name" : "link",
+	    						"desc" : "url of the resource"
+	    					},
+	    					{
+	    						"name" : "description",
+	    						"desc" : "optional brief description"
+	    					},
+	    					{
+	    						"name" : "votes",
+	    						"desc" : "no. of votes"
+	    					},
+	    					{
+	    						"name" : "timestamp",
+	    						"desc" : "unix timestamp when link was posted"
+	    					},
+	    					{
+	    						"name" : "uid",
+	    						"desc" : "integer to identify the unique user who posted the link"
+	    					}
+	    				]
+				},
+				{
+	    			"name" : "votelogs",
+	    			"desc" : "logs of votes on links",
+	    			"fields" :
+	    				[
+	    					{
+	    						"name" : "item",
+	    						"desc" : "integer to identify the unique voted link"
+	    					},
+	    					{
+	    						"name" : "user",
+	    						"desc" : "username of the user who has voted"
+	    					},
+	    					{
+	    						"name" : "type",
+	    						"desc" : "type of vote: upvote/downvote"
+	    					}
+	    				]
+				},
+				{
+	    			"name" : "clicklogs",
+	    			"desc" : "logs of clicks on links",
+	    			"fields" :
+	    				[
+	    					{
+	    						"name" : "item",
+	    						"desc" : "integer to identify the unique clicked link"
+	    					},
+	    					{
+	    						"name" : "user",
+	    						"desc" : "username of the user who has clicked"
+	    					},
+	    					{
+	    						"name" : "time",
+	    						"desc" : "time of clicking"
+	    					}
+	    				]
+				}
+	    	]
+	}
+}

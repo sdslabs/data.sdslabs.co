@@ -1,0 +1,61 @@
+{	
+	"app" : {
+	    "title" : "Live",
+	    "desc": "SDSLabs Live is the most popular application on the campus of IIT Roorkee. It streams video programs at times peaking 1200 active viewers. At present votes cast by the viewers are logged and are available in the following format.",
+	    "collections" : 
+	    	[
+	    		{
+	    			"name" : "votes",
+	    			"fields" :
+	    				[
+	    					{
+	    						"name" : "id",
+	    						"desc" : "integer to identify a unique vote"
+	    					},
+	    					{
+	    						"name" : "user_id",
+	    						"desc" : "integer to identify a unique user"
+	    					},
+	    					{
+	    						"name" : "program_id",
+	    						"desc" : "integer to identify a television program"
+	    					},
+	    					{
+	    						"name" : "created_at",
+	    						"desc" : "when did the voter cast this vote"
+	    					}
+	    				]
+				},
+				{
+	    			"name" : "programs",
+	    			"fields" :
+	    				[
+	    					{
+	    						"name" : "id",
+	    						"desc" : "integer to identify a television program"
+	    					},
+	    					{
+	    						"name" : "start_time",
+	    						"desc" : "time of when the show starts"
+	    					},
+	    					{
+	    						"name" : "end_time",
+	    						"desc" : "time of when the show ends"
+	    					},
+	    					{
+	    						"name" : "program_name",
+	    						"desc" : "the name of the television program"
+	    					},
+	    					{
+	    						"name" : "was_it_live",
+	    						"desc" : "indicates whether the program was a live program"
+	    					},
+	    					{
+	    						"name" : "description",
+	    						"desc" : "Information about the television program"
+	    					}
+	    				]
+				}
+	    	]
+	}
+}

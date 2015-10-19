@@ -1,0 +1,66 @@
+{	
+	"app" : {
+	    "title" : "StudyPortal",
+	    "desc": "Study Portal allows anyone to upload files to courses that are taught in IITR. These files can be professor’s handouts, practical manuals, tutorial solutions, class notes etc. And these files are going to outlast your tenure in the lands of IITR.",
+	    "collections" : 
+	    	[
+	    		{
+	    			"name" : "logs",
+	    			"desc" : "file download logs",
+	    			"fields" :
+	    				[
+	    					{
+	    						"name" : "id",
+	    						"desc" : "integer to identify a unique log"
+	    					},
+	    					{
+	    						"name" : "fileid",
+	    						"desc" : "integer to identify a unique file"
+	    					},
+	    					{
+	    						"name" : "time",
+	    						"desc" : "time of when the download was made"
+	    					}
+	    				]
+				},
+				{
+	    			"name" : "files",
+	    			"fields" :
+	    				[
+	    					{
+	    						"name" : "id",
+	    						"desc" : "integer to identify a unique file"
+	    					},
+	    					{
+	    						"name" : "title",
+	    						"desc" : "title of the file"
+	    					},
+	    					{
+	    						"name" : "department",
+	    						"desc" : "department of the course to which the file belongs eg: ce"
+	    					},
+	    					{
+	    						"name" : "course",
+	    						"desc" : "course of the file eg: CE212"
+	    					},
+	    					{
+	    						"name" : "uploader",
+	    						"desc" : "integer to identify the uploader of the file"
+	    					},
+	    					{
+	    						"name" : "contentType",
+	    						"desc" : "content type of the file"
+	    					},
+	    					{
+	    						"name" : "no_of_downloads",
+	    						"desc" : "number of times the file has been downloaded"
+	    					},
+	    					{
+	    						"name" : "description",
+	    						"desc" : "description of the file"
+	    					}
+	    				]
+				}
+	    	]
+	}
+}

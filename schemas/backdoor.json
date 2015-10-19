@@ -1,0 +1,90 @@
+{	
+	"app" : {
+	    "title" : "Backdoor",
+	    "desc": "Backdoor is a platform for competitive computer security challenges. Frequent competitions are held on Backdoor with participants from all over the world.",
+	    "collections" : 
+	    	[
+	    		{
+	    			"name" : "logs",
+	    			"desc" : "Represents a flag submission.",
+	    			"fields" :
+	    				[
+	    					{
+	    						"name" : "id",
+	    						"desc" : "integer to identify a unique log"
+	    					},
+	    					{
+	    						"name" : "created_at",
+	    						"desc" : "time of when the log was created"
+	    					},
+	    					{
+	    						"name" : "user_id",
+	    						"desc" : "integer to identify a unique user"
+	    					},
+	    					{
+	    						"name" : "flag_id",
+	    						"desc" : "integer to identify the flag submitted by the user"
+	    					},
+	    					{
+	    						"name" : "match",
+	    						"desc" : "indicates whether the flag submitted was valid"
+	    					}
+	    				]
+				},
+				{
+	    			"name" : "flags",
+	    			"desc" : "All valid flags",
+	    			"fields" :
+	    				[
+	    					{
+	    						"name" : "id",
+	    						"desc" : "integer to identify a unique flag"
+	    					},
+	    					{
+	    						"name" : "flag",
+	    						"desc" : "64 byte long hexadecimal string representing a flag"
+	    					},
+	    					{
+	    						"name" : "points",
+	    						"desc" : "points corresponding to the flag"
+	    					}
+	    				]
+				},
+				{
+	    			"name" : "challenges",
+	    			"desc" : "Each challenge has an associated valid flag with it",
+	    			"fields" :
+	    				[
+	    					{
+	    						"name" : "id",
+	    						"desc" : "integer to identify a challenge"
+	    					},
+	    					{
+	    						"name" : "name",
+	    						"desc" : "the name of the challenge. This is used in the url eg: https://backdoor.sdslabs.co/challenges/MEDUSA"
+	    					},
+	    					{
+	    						"name" : "title",
+	    						"desc" : "the title of the challenge"
+	    					},
+	    					{
+	    						"name" : "flag_id",
+	    						"desc" : "integer to identify the flag associated with the challenge"
+	    					},
+	    					{
+	    						"name" : "statement",
+	    						"desc" : "the challenge statement"
+	    					},
+	    					{
+	    						"name" : "creator",
+	    						"desc" : "integer to identify the user who created this challenge"
+	    					},
+	    					{
+	    						"name" : "created_at",
+	    						"desc" : "time of challenge creation i.e. addition to the backdoor platform"
+	    					}
+	    				]
+				}
+	    	]
+	}
+}
