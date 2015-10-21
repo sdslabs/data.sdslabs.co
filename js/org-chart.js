@@ -95,7 +95,7 @@ window.onload = function () {
                 var l = text.length;
                 w = 15*l + 25;
                 var eltext = r.set();
-                el = r.rect( x, y, w, h).attr({fill: '#00AA60', stroke: '#00AA60', "fill-opacity": op, "stroke-width": 1, cursor: "move"});;
+                el = r.rect( x, y, w, h).attr({fill: '#00AA60', stroke: '#00AA60', "fill-opacity": op, "stroke-width": 1});;
                 text = r.text(x+w/2, y+h/2, text).attr({fill: '#00AA60', font: '30px Myriad Pro Regular'})
                 eltext.push(el);
                 eltext.push(text);
@@ -103,7 +103,7 @@ window.onload = function () {
             },
             getFieldNode = function( x, y, h, w, text ) {
                 var eltext = r.set();
-                el = r.rect( x, y, h, w).attr({fill: '#12020E', stroke: '#12020E', "fill-opacity": 0, cursor: "move"});;
+                el = r.rect( x, y, h, w).attr({fill: '#12020E', stroke: '#12020E', "fill-opacity": 0});;
                 text = r.text(x+h/2, y+w/2, text).attr({fill: '#00AA60', font: '24px Myriad Pro Regular'})
                 eltext.push(el);
                 eltext.push(text);
@@ -144,9 +144,6 @@ window.onload = function () {
                 connections.push(r.connection(colNode, fieldNode, "#fff"));
             }
             wf_prev = wf_prev + wf;
-        }
-        for( var i = 0; i<shapes.length; i++){
-            shapes[i].drag(move, dragger, up);
         }
     });
 };
