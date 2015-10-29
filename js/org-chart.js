@@ -64,9 +64,11 @@ for (var i = 0; i < parts.length; i++) {
 }
 
 var el,
-    app = get.app;
+    app = get.app,
+    file = get.file;
     
 window.onload = function () {
+    $('.download').attr('href', 'schemas/' + file);
     $.getJSON('schemas/' + app + '.json', function( schema ) {
         var dragger = function () {
                 this.ox = this.type == "rect" ? this.attr("x") : this.attr("cx");

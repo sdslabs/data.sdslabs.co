@@ -126,6 +126,19 @@ div.sdslabs-info {
   color: #fff;
 }
 
+div.download-button {
+  position: absolute;
+  left: 80px;
+  top: 40px;
+  z-index: 100;
+  color: #fff;
+  font-size: 12px;
+}
+
+div.download-button a{
+  color: #fff;
+}
+
 #placeholder-main a, div.sdslabs-info a {
   font-weight: bold;
   text-decoration: dotted;
