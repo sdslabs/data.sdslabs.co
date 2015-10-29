@@ -1,7 +1,7 @@
 {	
 	"app" : {
 	    "title" : "Hubble",
-	    "desc": "Hubble is a resource sharing application for IITR junta. We log the links posted by users along with their active interaction in the form of clicks, votes and comments",
+	    "desc": "Hubble is a resource sharing application for IITR junta. <br>We log the links posted by users along with their active interaction in the form of clicks, votes and comments",
 	    "collections" : 
 	    	[
 	    		{

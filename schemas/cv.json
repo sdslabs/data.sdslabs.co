@@ -1,0 +1,94 @@
+{	
+	"app" : {
+	    "title" : "CodeVillage",
+	    "desc": "CodeVillage is a platform for practicing competitive algorithmic programming.<br> We also organize frequent coding competitions.",
+	    "collections" : 
+	    	[
+	    		{
+	    			"name" : "solution",
+	    			"desc" : "solution submission and status logs",
+	    			"fields" :
+	    				[
+	    					{
+	    						"name" : "id",
+	    						"desc" : "integer to identify a unique solution"
+	    					},
+	    					{
+	    						"name" : "pid",
+	    						"desc" : "id of problem for which solution has been submitted"
+	    					},
+	    					{
+	    						"name" : "uid",
+	    						"desc" : "id of the user who as submitted the solution"
+	    					},
+	    					{
+	    						"name" : "ctype",
+	    						"desc" : "whether the problem belongs to a competition (1) or not (0)"
+	    					},
+	    					{
+	    						"name" : "sdate",
+	    						"desc" : "time when submitted"
+	    					},
+	    					{
+	    						"name" : "status",
+	    						"desc" : "status of solution returned after grading (AC - accepted, WA - wrong answer, TLE - time limit exceeded, IE - internal error)"
+	    					},
+	    					{
+	    						"name" : "language",
+	    						"desc" : "programming language in which the solution was submitted"
+	    					},
+	    					{
+	    						"name" : "time",
+	    						"desc" : "time taken by the solution to run"
+	    					},
+	    					{
+	    						"name" : "memory",
+	    						"desc" : "memory used by the solution"
+	    					},
+	    					{
+	    						"name" : "detail_status",
+	    						"desc" : "detailed status of solution returned after grading"
+	    					}
+	    				]
+				},
+				{
+	    			"name" : "votelogs",
+	    			"desc" : "logs of votes on links",
+	    			"fields" :
+	    				[
+	    					{
+	    						"name" : "item",
+	    						"desc" : "integer to identify the unique voted link"
+	    					},
+	    					{
+	    						"name" : "user",
+	    						"desc" : "username of the user who has voted"
+	    					},
+	    					{
+	    						"name" : "type",
+	    						"desc" : "type of vote: upvote/downvote"
+	    					}
+	    				]
+				},
+				{
+	    			"name" : "clicklogs",
+	    			"desc" : "logs of clicks on links",
+	    			"fields" :
+	    				[
+	    					{
+	    						"name" : "item",
+	    						"desc" : "integer to identify the unique clicked link"
+	    					},
+	    					{
+	    						"name" : "user",
+	    						"desc" : "username of the user who has clicked"
+	    					},
+	    					{
+	    						"name" : "time",
+	    						"desc" : "time of clicking"
+	    					}
+	    				]
+				}
+	    	]
+	}
+}

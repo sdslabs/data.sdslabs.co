@@ -1,7 +1,7 @@
 {	
 	"app" : {
 	    "title" : "Muzi",
-	    "desc": "With over 130,000 tracks by 11,000 artists and updating daily, Muzi is the one stop online music player for the IIT Roorkee intranet.",
+	    "desc": "With over 130,000 tracks by 11,000 artists and updating daily, <br>Muzi is the one stop online music player for the IIT Roorkee intranet.",
 	    "collections" : 
 	    	[
 	    		{

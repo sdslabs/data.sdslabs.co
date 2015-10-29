@@ -1,7 +1,7 @@
 {	
 	"app" : {
 	    "title" : "Backdoor",
-	    "desc": "Backdoor is a platform for competitive computer security challenges. Frequent competitions are held on Backdoor with participants from all over the world.",
+	    "desc": "Backdoor is a platform for competitive computer security challenges.<br> Frequent competitions are held on Backdoor with participants from all over the world.",
 	    "collections" : 
 	    	[
 	    		{

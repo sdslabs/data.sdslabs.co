@@ -161,6 +161,13 @@ div.content {
   color: #fff;
 }
 
+div.description {
+  padding: 5px;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+}
+
 ul.list a {
   color: auto;
 }

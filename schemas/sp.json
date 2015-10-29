@@ -1,7 +1,7 @@
 {	
 	"app" : {
 	    "title" : "StudyPortal",
-	    "desc": "Study Portal allows anyone to upload files to courses that are taught in IITR. These files can be professor’s handouts, practical manuals, tutorial solutions, class notes etc. And these files are going to outlast your tenure in the lands of IITR.",
+	    "desc": "Study Portal allows anyone to upload files to courses that are taught in IITR. <br>These files can be professor’s handouts, practical manuals, tutorial solutions, class notes etc. <br>And these files are going to outlast your tenure in the lands of IITR.",
 	    "collections" : 
 	    	[
 	    		{

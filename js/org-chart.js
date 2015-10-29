@@ -87,7 +87,7 @@ window.onload = function () {
             r = Raphael("org-chart", "95%", "95%"),
             connections = [],
             shapes = [],
-            getNode = function( x, y, w, h, text, root ) {
+            getNode = function( x, y, w, h, text, root, desc ) {
                 if( root == 1 )
                     var op = 0.1;
                 else
@@ -96,23 +96,40 @@ window.onload = function () {
                 w = 15*l + 25;
                 var eltext = r.set();
                 el = r.rect( x, y, w, h).attr({fill: '#00AA60', stroke: '#00AA60', "fill-opacity": op, "stroke-width": 1});;
-                text = r.text(x+w/2, y+h/2, text).attr({fill: '#00AA60', font: '30px Myriad Pro Regular'})
+                text_ob = r.text(x+w/2, y+h/2, text).attr({fill: '#00AA60', font: '30px Myriad Pro Regular', cursor: 'pointer'})
                 eltext.push(el);
-                eltext.push(text);
+                eltext.push(text_ob);
+                if (typeof desc === 'undefined'){
+                    desc = 'Table ' + text;
+                }
+                eltext.click(function(){
+                    var desc_html = '<div class=" description animated fadeInUp">' + desc + '</div>'
+                    $('.notif').html();
+                    $('.notif').html(desc_html);
+                });
                 return (eltext);
             },
-            getFieldNode = function( x, y, h, w, text ) {
+            getFieldNode = function( x, y, h, w, text, desc ) {
                 var eltext = r.set();
                 el = r.rect( x, y, h, w).attr({fill: '#12020E', stroke: '#12020E', "fill-opacity": 0});;
-                text = r.text(x+h/2, y+w/2, text).attr({fill: '#00AA60', font: '24px Myriad Pro Regular'})
+                text_ob = r.text(x+h/2, y+w/2, text).attr({fill: '#00AA60', font: '24px Myriad Pro Regular', cursor: 'pointer'})
                 eltext.push(el);
-                eltext.push(text);
+                eltext.push(text_ob);
+                if (typeof desc === 'undefined'){
+                    desc = 'Field ' + text;
+                }
+                eltext.click(function(){
+                    var desc_html = '<div class=" description animated fadeInUp">' + desc + '</div>'
+                    $('.notif').html();
+                    $('.notif').html(desc_html);
+                });
                 return (eltext);
             };
         
         var w = r.canvas.offsetWidth - 50;
         var app = schema.app;
-        var root = getNode(w/2, 50, 160, 75, app.title, 1);
+        var desc = app.desc ? app.desc : '';
+        var root = getNode(w/2, 50, 160, 75, app.title, 1, desc);
         shapes.push(root);
         
         var collections = app.collections;
@@ -127,19 +144,21 @@ window.onload = function () {
             var fields = col.fields;
             var nf = fields.length;
             var wf = (w-10)*(nf/nf_total);
-            colNode = getNode(wf_prev + 0.5*wf, 250, 160, 75, col.name);
+            var desc = col.desc ? col.desc : '';
+            colNode = getNode(wf_prev + 0.5*wf, 250, 160, 75, col.name, desc);
             shapes.push(colNode);
             connections.push(r.connection(root, colNode, "#fff", "#fff|5"));
             for( var j = 0; j<nf; j++){
                 var field = fields[j];
                 if(j<=nf/2)
-                    var y = 450 + (j*500/(nf-1));
+                    var y = 380 + (j*500/(nf-1));
                 else
-                    var y = 450 + ((nf-j-0.5)*500/(nf-1));
+                    var y = 380 + ((nf-j-0.5)*500/(nf-1));
                 var x = wf_prev + (j+0.3)*wf/nf;
                 if(j==(nf+1)/2)
                     x = x + 20;
-                fieldNode = getFieldNode( x, y, 100, 50, field.name);
+                var desc = field.desc ? field.desc : '';
+                fieldNode = getFieldNode( x, y, 100, 50, field.name, desc);
                 shapes.push(fieldNode);
                 connections.push(r.connection(colNode, fieldNode, "#fff"));
             }
