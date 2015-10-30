@@ -66,8 +66,8 @@ for (var i = 0; i < parts.length; i++) {
 var el,
     app = get.app,
     file = get.file,
-    width = $(window).width() * 0.95,
-    height = $(window).height() * 0.85;
+    width = $(window).width(),
+    height = $(document).height();
     
 window.onload = function () {
     $('.download').attr('href', 'schemas/' + file);
@@ -88,7 +88,7 @@ window.onload = function () {
             up = function () {
                 this.animate({"fill-opacity": 0}, 500);
             },
-            r = Raphael("org-chart", width, height),
+            r = Raphael("org-chart"),
             connections = [],
             shapes = [],
             getNode = function( x, y, w, h, text, root, desc ) {
@@ -106,7 +106,7 @@ window.onload = function () {
                 if (typeof desc === 'undefined'){
                     desc = 'Table ' + text;
                 }
-                eltext.click(function(){
+                text_ob.hover(function(){
                     var desc_html = '<div class=" description animated fadeInUp">' + desc + '</div>'
                     $('.notif').html();
                     $('.notif').html(desc_html);
@@ -122,14 +122,15 @@ window.onload = function () {
                 if (typeof desc === 'undefined'){
                     desc = 'Field ' + text;
                 }
-                eltext.click(function(){
+                text_ob.hover(function(){
                     var desc_html = '<div class=" description animated fadeInUp">' + desc + '</div>'
                     $('.notif').html();
                     $('.notif').html(desc_html);
                 });
                 return (eltext);
             };
-        
+        r.setViewBox(0,0,width,height,false);
+        r.setSize('100%', '90%');
         var w = r.canvas.offsetWidth - 50;
         var app = schema.app;
         var desc = app.desc ? app.desc : '';
