@@ -212,12 +212,12 @@ div.footer {
 
 #org-chart {
   width: 100%;
-  /*height: 100%;*/
+  height: 100%;
   /*overflow: scroll;*/
 }
 
 svg {
-  overflow: scroll;
+  /*overflow: scroll;*/
 }
 
 .notif {

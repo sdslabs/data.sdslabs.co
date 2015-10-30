@@ -129,7 +129,7 @@ window.onload = function () {
                 });
                 return (eltext);
             };
-        r.setViewBox(0,0,width,height,false);
+        // r.setViewBox(0,0,width,height*0.98,false);
         r.setSize('100%', '90%');
         var w = r.canvas.offsetWidth - 50;
         var app = schema.app;
