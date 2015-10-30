@@ -9,15 +9,19 @@
 	    			"fields" :
 	    				[
 	    					{
-	    						"name" : "trackid",
+	    						"name" : "id",
+	    						"desc" : "Unique identifier for a particular listen"
+	    					},
+	    					{
+	    						"name" : "track_id",
 	    						"desc" : "integer to identify a unique track/song"
 	    					},
 	    					{
-	    						"name" : "uid",
+	    						"name" : "user_id",
 	    						"desc" : "integer to identify a unique user"
 	    					},
 	    					{
-	    						"name" : "time",
+	    						"name" : "timestamp",
 	    						"desc" : "time of when the track was played by the user"
 	    					}
 	    				]
@@ -35,12 +39,20 @@
 	    						"desc" : "title of the track eg: Lost Stars"
 	    					},
 	    					{
-	    						"name" : "album",
+	    						"name" : "album_id",
 	    						"desc" : "integer to identify the album of the track"
 	    					},
 	    					{
 	    						"name" : "artist",
 	    						"desc" : "artist of the track eg: Taylor Swift"
+	    					},
+	    					{
+	    						"name" : "band_id",
+	    						"desc" : "Unique integer to identify band of the track. In some cases band and artist might be different"
+	    					},
+	    					{
+	    						"name" : "genre_id",
+	    						"desc" : "Unique integer to identify genre of the track"
 	    					},
 	    					{
 	    						"name" : "plays",
@@ -67,6 +79,10 @@
 	    					{
 	    						"name" : "language",
 	    						"desc" : "language of the album"
+	    					},
+	    					{
+	    						"name" : "band_id",
+	    						"desc" : "Unique integer to identify band of the album"
 	    					}
 	    				]
 				}
