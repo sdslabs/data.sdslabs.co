@@ -65,7 +65,9 @@ for (var i = 0; i < parts.length; i++) {
 
 var el,
     app = get.app,
-    file = get.file;
+    file = get.file,
+    width = $(window).width() * 0.95,
+    height = $(window).height() * 0.85;
     
 window.onload = function () {
     $('.download').attr('href', 'schemas/' + file);
@@ -86,7 +88,7 @@ window.onload = function () {
             up = function () {
                 this.animate({"fill-opacity": 0}, 500);
             },
-            r = Raphael("org-chart", "95%", "95%"),
+            r = Raphael("org-chart", width, height),
             connections = [],
             shapes = [],
             getNode = function( x, y, w, h, text, root, desc ) {

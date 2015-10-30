@@ -209,3 +209,22 @@ ul.list li:hover {
 div.footer {
   margin-top: 100px;
 }
+
+#org-chart {
+  width: 100%;
+  /*height: 100%;*/
+  /*overflow: scroll;*/
+}
+
+svg {
+  overflow: scroll;
+}
+
+.notif {
+  position: fixed;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
