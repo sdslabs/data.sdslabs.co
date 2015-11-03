@@ -10,7 +10,7 @@
 	    				[
 	    					{
 	    						"name" : "id",
-	    						"desc" : "Unique identifier for a particular listen"
+	    						"desc" : "unique identifier for a particular listen"
 	    					},
 	    					{
 	    						"name" : "track_id",
@@ -48,11 +48,11 @@
 	    					},
 	    					{
 	    						"name" : "band_id",
-	    						"desc" : "Unique integer to identify band of the track. In some cases band and artist might be different"
+	    						"desc" : "unique integer to identify band of the track. In some cases band and artist might be different"
 	    					},
 	    					{
 	    						"name" : "genre_id",
-	    						"desc" : "Unique integer to identify genre of the track"
+	    						"desc" : "unique integer to identify genre of the track"
 	    					},
 	    					{
 	    						"name" : "plays",
@@ -82,7 +82,7 @@
 	    					},
 	    					{
 	    						"name" : "band_id",
-	    						"desc" : "Unique integer to identify band of the album"
+	    						"desc" : "unique integer to identify band of the album"
 	    					}
 	    				]
 				}

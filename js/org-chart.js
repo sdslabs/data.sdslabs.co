@@ -130,8 +130,9 @@ window.onload = function () {
                 return (eltext);
             };
         // r.setViewBox(0,0,width,height*0.98,false);
-        r.setSize('100%', '90%');
+        r.setSize('100%', '100%');
         var w = r.canvas.offsetWidth - 50;
+        var fh = r.canvas.offsetHeight - 250;
         var app = schema.app;
         var desc = app.desc ? app.desc : '';
         var root = getNode(w/2, 50, 160, 75, app.title, 1, desc);
@@ -150,15 +151,15 @@ window.onload = function () {
             var nf = fields.length;
             var wf = (w-10)*(nf/nf_total);
             var desc = col.desc ? col.desc : '';
-            colNode = getNode(wf_prev + 0.5*wf, 250, 160, 75, col.name, desc);
+            colNode = getNode(wf_prev + 0.5*wf, 180, 160, 75, col.name, desc);
             shapes.push(colNode);
             connections.push(r.connection(root, colNode, "#fff", "#fff|5"));
             for( var j = 0; j<nf; j++){
                 var field = fields[j];
                 if(j<=nf/2)
-                    var y = 380 + (j*500/(nf-1));
+                    var y = 250 + (j*fh/(nf-1));
                 else
-                    var y = 380 + ((nf-j-0.5)*500/(nf-1));
+                    var y = 250 + ((nf-j-0.5)*fh/(nf-1));
                 var x = wf_prev + (j+0.3)*wf/nf;
                 if(j==(nf+1)/2)
                     x = x + 20;
