@@ -52,40 +52,76 @@
 	    				]
 				},
 				{
-	    			"name" : "votelogs",
-	    			"desc" : "logs of votes on links",
+	    			"name" : "prob_<type>",
+	    			"desc" : "problem details ( prob_prac : practice problems, prob_train : training problems, prob_comp : competition problems )",
 	    			"fields" :
 	    				[
 	    					{
-	    						"name" : "item",
-	    						"desc" : "integer to identify the unique voted link"
+	    						"name" : "id",
+	    						"desc" : "integer to identify unique problem"
 	    					},
 	    					{
-	    						"name" : "user",
-	    						"desc" : "username of the user who has voted"
+	    						"name" : "pid",
+	    						"desc" : "unique problem name"
 	    					},
 	    					{
-	    						"name" : "type",
-	    						"desc" : "type of vote: upvote/downvote"
+	    						"name" : "cid",
+	    						"desc" : "id of competition that the problem belongs to ( applicable only in case of prob_comp )"
+	    					},
+	    					{
+	    						"name" : "name",
+	    						"desc" : "name of the problem"
+	    					},
+	    					{
+	    						"name" : "pdata",
+	    						"desc" : "problem statement"
+	    					},
+	    					{
+	    						"name" : "time_limit",
+	    						"desc" : "allowed time limit for solution execution"
+	    					},
+	    					{
+	    						"name" : "memory_limit",
+	    						"desc" : "allowed memory limit for solution execution"
+	    					},
+	    					{
+	    						"name" : "no_of_correct",
+	    						"desc" : "number of correct attempts"
+	    					},
+	    					{
+	    						"name" : "no_of_attempts",
+	    						"desc" : "number of attempts"
+	    					},
+	    					{
+	    						"name" : "uploader_id",
+	    						"desc" : "identifier of the uploader of the problem"
+	    					},
+	    					{
+	    						"name" : "date",
+	    						"desc" : "time when created"
 	    					}
 	    				]
 				},
 				{
-	    			"name" : "clicklogs",
-	    			"desc" : "logs of clicks on links",
+	    			"name" : "competition",
+	    			"desc" : "competition details",
 	    			"fields" :
 	    				[
 	    					{
-	    						"name" : "item",
-	    						"desc" : "integer to identify the unique clicked link"
+	    						"name" : "id",
+	    						"desc" : "integer to identify the unique competition"
 	    					},
 	    					{
-	    						"name" : "user",
-	    						"desc" : "username of the user who has clicked"
+	    						"name" : "cname",
+	    						"desc" : "name of the competition"
 	    					},
 	    					{
-	    						"name" : "time",
-	    						"desc" : "time of clicking"
+	    						"name" : "sdate",
+	    						"desc" : "competition start time"
+	    					},
+	    					{
+	    						"name" : "edate",
+	    						"desc" : "competition end time"
 	    					}
 	    				]
 				}

@@ -99,8 +99,8 @@ window.onload = function () {
                 var l = text.length;
                 w = 15*l + 25;
                 var eltext = r.set();
-                el = r.rect( x, y, w, h).attr({fill: '#00AA60', stroke: '#00AA60', "fill-opacity": op, "stroke-width": 1});;
-                text_ob = r.text(x+w/2, y+h/2, text).attr({fill: '#00AA60', font: '30px Myriad Pro Regular', cursor: 'pointer'})
+                var el = r.rect( x, y, w, h).attr({fill: '#00AA60', stroke: '#00AA60', "fill-opacity": op, "stroke-width": 1});
+                var text_ob = r.text(x+w/2, y+h/2, text).attr({fill: '#00AA60', font: '30px Myriad Pro Regular', cursor: 'pointer'});
                 eltext.push(el);
                 eltext.push(text_ob);
                 if (typeof desc === 'undefined'){
@@ -114,11 +114,7 @@ window.onload = function () {
                 return (eltext);
             },
             getFieldNode = function( x, y, h, w, text, desc ) {
-                var eltext = r.set();
-                el = r.rect( x, y, h, w).attr({fill: '#12020E', stroke: '#12020E', "fill-opacity": 0});;
-                text_ob = r.text(x+h/2, y+w/2, text).attr({fill: '#00AA60', font: '24px Myriad Pro Regular', cursor: 'pointer'})
-                eltext.push(el);
-                eltext.push(text_ob);
+                var text_ob = r.text(x+h/2, y+w/2, text).attr({fill: '#00AA60', font: '24px Myriad Pro Regular', cursor: 'pointer'})
                 if (typeof desc === 'undefined'){
                     desc = 'Field ' + text;
                 }
@@ -127,12 +123,12 @@ window.onload = function () {
                     $('.notif').html();
                     $('.notif').html(desc_html);
                 });
-                return (eltext);
+                return (text_ob);
             };
         // r.setViewBox(0,0,width,height*0.98,false);
         r.setSize('100%', '100%');
         var w = r.canvas.offsetWidth - 50;
-        var fh = r.canvas.offsetHeight - 250;
+        var fh = r.canvas.offsetHeight - 280;
         var app = schema.app;
         var desc = app.desc ? app.desc : '';
         var root = getNode(w/2, 50, 160, 75, app.title, 1, desc);
@@ -149,17 +145,17 @@ window.onload = function () {
             var col = collections[i];
             var fields = col.fields;
             var nf = fields.length;
-            var wf = (w-10)*(nf/nf_total);
+            var wf = w*(nf/nf_total) - 60;
             var desc = col.desc ? col.desc : '';
-            colNode = getNode(wf_prev + 0.5*wf, 180, 160, 75, col.name, desc);
+            colNode = getNode(wf_prev + 0.5*wf, 120 + 50*(i%2), 160, 75, col.name, 0, desc);
             shapes.push(colNode);
             connections.push(r.connection(root, colNode, "#fff", "#fff|5"));
             for( var j = 0; j<nf; j++){
                 var field = fields[j];
                 if(j<=nf/2)
-                    var y = 250 + (j*fh/(nf-1));
+                    var y = 250 + (j*fh/((nf+1)/2));
                 else
-                    var y = 250 + ((nf-j-0.5)*fh/(nf-1));
+                    var y = 250 + ((nf-j-0.70)*fh/((nf+1)/2));
                 var x = wf_prev + (j+0.3)*wf/nf;
                 if(j==(nf+1)/2)
                     x = x + 20;
@@ -168,7 +164,7 @@ window.onload = function () {
                 shapes.push(fieldNode);
                 connections.push(r.connection(colNode, fieldNode, "#fff"));
             }
-            wf_prev = wf_prev + wf;
+            wf_prev = wf_prev + wf + 30;
         }
     });
 };
